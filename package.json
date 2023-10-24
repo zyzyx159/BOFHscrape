@@ -1,0 +1,31 @@
+{
+  "name": "bofhscrape",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "build and update complete BOFH E-book",
+  "main": "index.js",
+  "scripts": {
+    "test": "none at this time"
+  },
+  "repository": {
+    "type": "git",
+    "url": "to do later"
+  },
+  "keywords": [
+    "BOFH",
+    "zyzyx159",
+    "cli"
+  ],
+  "author": "zyzyx159 (Daniel Stellmon)",
+  "license": "ISC",
+  "bin": {
+    "bofh": "./bin/index.js"
+  },
+  "dependencies": {
+    "axios": "^1.5.1",
+    "cheerio": "^1.0.0-rc.12",
+    "date-and-time": "^3.0.3",
+    "date-format": "^4.0.14",
+    "yargs": "^17.7.2"
+  }
+}
