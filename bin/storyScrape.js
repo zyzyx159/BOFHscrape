@@ -3,19 +3,6 @@ import * as cheerio from 'cheerio';
 import * as fs from 'fs';
 import * as df from 'date-format';
 
-//let rawData = fs.readFileSync('./OutPut/2018.json');
-//let links = JSON.parse(rawData);
-
-//links.forEach(scrapeStory);
-// links.forEach(testLink);
-
-// function testLink (currentValue) {
-//   let fixedLink = "https://www.theregister.com" + currentValue['link'];
-//   console.log(fixedLink);
-// }
-
-let URL = process.argv[2];
-
 //TODO: move this to index
 function scrapeStory (URL) {
   //let fixedLink = "https://www.theregister.com" + currentValue['link'];
@@ -31,7 +18,7 @@ function scrapeStory (URL) {
   );
 
   var subtitle = (episodeElements
-    .find('div[class=header_right] > h2')
+   .find('div[class=header_right] > h2')
     .text()
   );
 

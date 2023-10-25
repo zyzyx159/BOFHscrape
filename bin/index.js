@@ -2,11 +2,12 @@ import * as utils from './utils.js';
 import * as linkScrape from './linkScrape.js';
 import * as storyScrape from './storyScrape.js';
 
-var links = [];
-links.push(1);
+//var arr2 = [];
+//arr2.length;
+//console.log(arr2.length);
 
-var myata = []; 
-myata.push(1); // add at the end 
+//var arr3 = [ 'cat', 'rat', 'bat' ];
+//arr3.push("mat");
+//console.log(arr3.length);
 
-console.log(links.legenth);
-console.log(myata.legenth); // prints [1] 
+utils.current();
