@@ -7,8 +7,7 @@ import * as df from 'date-format';
 
 export function current(){
   const URL = 'https://www.theregister.com/offbeat/bofh/'
-  
-  for(let i = 0; i < getLinks(URL).le; 
+  //for(let i = 0; i < getLinks(URL).le; 
 }
 
 export function readDB() {
