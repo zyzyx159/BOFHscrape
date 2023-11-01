@@ -1,14 +1,11 @@
 import axios, * as others from 'axios';
 import * as cheerio from 'cheerio';
 
-//NOTE: The program is failing as its running everything before it finishes axios.
-//I think I can directly push all the data into the map, I just need the program to wait for axios to run before returning data.
-
 export function getStory(URL) {
 
-  var storyData = new Map();
+  const storyData = new Map();
   storyData.set('URL',URL);
-  
+
   axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
     const html = response.data;
     const $ = cheerio.load(html);
@@ -19,17 +16,17 @@ export function getStory(URL) {
       .text()
     ));
 
-    subtitle = (episodeElements
+    var subtitle = (episodeElements
      .find('div[class=header_right] > h2')
       .text()
     );
-   
+
     var episodeNumber = (episodeElements 
       .find('#body > p:nth-child(1) > span')
       .text()
     );
 
-    author = (episodeElements
+    var author = (episodeElements
       .find('a.byline')
       .text().replace(/\r?\n|\r/g, " ")    
     );
@@ -48,6 +45,14 @@ export function getStory(URL) {
     );
   });
 
-return storyData;
+//  const storyData = new Map();
+//    storyData.set('URL', URL);
+//    storyData.set('title', title);
+//    storyData.set('subtitle', subtitle);
+//    storyData.set('episodeNumber', episodeNumber);
+//    storyData.set('author', author);
+//    storyData.set('pubDate', pubDate);
+//    storyData.set('story', story);
 
+  return storyData;
 };

@@ -1,21 +1,31 @@
-import * as dbUtils from './dbUtils.js';
 import * as linkScrape from './linkScrape.js';
+import * as fs from 'fs';
 
-//NOTE: this function is going to only get the latest episodes
-export function current() {
-  const URL = 'https://www.theregister.com/offbeat/bofh';
-//  console.log(dbUtils.readDB.length);
-  dbUtils.readDB();
-}
+//read and write the database
+export function readDB(){
 
-export function archive(URL) {
-  //don't check DB, overwrite
 }
+// write the mark down
+// process the map object the story scrape is going create
+// compare the two lists of links
 
-export function pre2k(URL) {
-  
-}
+//export function ProcessStoryMap{
+//  let stringYear = df.asString('yyyy', pubDate); 
 
-function dbCheck(link) {
-  
-}
+//  let fileName = "../output/" + stringYear + " " + episodeNumber + (".md");
+
+//build a big string here and do the writing all at once
+//  let bigString = "# " + title + "\n\n## " + subtitle + "\n\n";
+
+//  story.forEach(element => {
+//    bigString = bigString + element + "\n\n"
+//    });
+
+//  bigString = bigString + "\n\n- Published on: " + pubDate + "\n\n- Written By: " + author + "\n\n- Posted to: \[" + URL + "\]\(" + URL + "\)";
+
+//  fs.writeFile(fileName, bigString, err =>{
+//      if(err)
+//        console.log(err);
+//  )};
+//};
+

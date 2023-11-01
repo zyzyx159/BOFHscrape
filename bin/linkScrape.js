@@ -1,7 +1,5 @@
 import axios, * as others from 'axios'; 
 import * as cheerio from 'cheerio';
-//import * as fs from 'fs';
-//import * as df from 'date-format';
 
 export function getLinks(URL) {
   axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
@@ -14,7 +12,7 @@ export function getLinks(URL) {
 
     $('.story_link').each( function (){
       var link = $(this).attr('href');
-        //console.log(link);
+//        console.log(link);
       if (link.includes("bofh")){
 //        links.push({link});
         links.push("https://www.theregister.com" + link);
