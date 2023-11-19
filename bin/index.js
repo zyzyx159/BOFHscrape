@@ -1,14 +1,26 @@
 import * as utils from './utils.js';
 import * as linkScrape from './linkScrape.js';
 import * as storyScrape from './storyScrape.js';
+import * as test from './test.js'
 
-var links = [];
-links.push(1);
+//NOTE: this function is going to only get the latest episodes
+export function current() {
 
-var myata = []; 
-myata.push(1); // add at the end 
+}
 
-console.log(links.legenth);
-console.log(myata.legenth); // prints [1]
+//NOTE: This function checks all the pages of links and downloads everything
+export function archive(URL) {
 
-console.log(links[0]);
+}
+
+//NOTE: This function downloads the the stuff written before it was sold to The Register
+export function pre2k(URL) {
+  
+}
+
+//NOTE: this belongs in utils
+function dbCheck(link) {
+  
+}
+
+test.testStoryScrape();
