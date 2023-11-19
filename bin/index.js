@@ -9,4 +9,6 @@ var myata = [];
 myata.push(1); // add at the end 
 
 console.log(links.legenth);
-console.log(myata.legenth); // prints [1] 
+console.log(myata.legenth); // prints [1]
+
+console.log(links[0]);
