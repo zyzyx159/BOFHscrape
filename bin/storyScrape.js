@@ -4,11 +4,15 @@ import * as cheerio from 'cheerio';
 //NOTE: The program is failing as its running everything before it finishes axios.
 //I think I can directly push all the data into the map, I just need the program to wait for axios to run before returning data.
 
+let storyData = new Map();
+
 export function getStory(URL) {
 
-  var storyData = new Map();
+  //var storyData = new Map();
   storyData.set('URL',URL);
-  
+
+//NOTE: axios needs to be a promise that needs to delay the return function
+
   axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
     const html = response.data;
     const $ = cheerio.load(html);
@@ -19,35 +23,35 @@ export function getStory(URL) {
       .text()
     ));
 
-    subtitle = (episodeElements
-     .find('div[class=header_right] > h2')
+    storyData.set('subtitle',(episodeElements
+      .find('div[class=header_right] > h2')
       .text()
-    );
+    ));
    
-    var episodeNumber = (episodeElements 
+    storyData.set('episodeNumber',(episodeElements 
       .find('#body > p:nth-child(1) > span')
       .text()
-    );
+    ));
 
-    author = (episodeElements
+    storyData.set('author',(episodeElements
       .find('a.byline')
       .text().replace(/\r?\n|\r/g, " ")    
-    );
+    ));
 
-    var pubDate = new Date (episodeElements
+    storyData.set('pubDate',(episodeElements
       .find('span[class=dateline]')
       .text()
-    );
+    ));
 
-    var story = (episodeElements
+    storyData.set('story',(episodeElements
       .find('div[id=body] > p')
       .toArray()
       .map(element => $(element)
         .text()
       )
-    );
+    ));
   });
-
 return storyData;
-
 };
+
+
