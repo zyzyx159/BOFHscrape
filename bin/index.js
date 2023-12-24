@@ -5,7 +5,8 @@ import * as test from './test.js'
 
 //NOTE: this function is going to only get the latest episodes
 export function current() {
-
+  //call linkScrape with the default URL and wait for a reply
+  //https://www.youtube.com/watch?v=TnhCX0KkPqs
 }
 
 //NOTE: This function checks all the pages of links and downloads everything

@@ -6,19 +6,18 @@ import * as cheerio from 'cheerio';
 
 let storyData = new Map();
 
-export function getStory(URL) {
+export async function getStory(URL) {
 
   //var storyData = new Map();
   storyData.set('URL',URL);
 
 //NOTE: axios needs to be a promise that needs to delay the return function
 
-  axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
-    const html = response.data;
-    const $ = cheerio.load(html);
-    const episodeElements = $('div[id=page] > article');
+  const response = await axios.get(URL);
+  const $ = cheerio.load(response.data);
+  const episodeElements = $('div[id=page] > article');
 
-    storyData.set('title',(episodeElements
+  storyData.set('title',(episodeElements
       .find('div[class=header_right] > h1')
       .text()
     ));
@@ -50,8 +49,7 @@ export function getStory(URL) {
         .text()
       )
     ));
-  });
-return storyData;
-}
+  return storyData;
+};
 
 
