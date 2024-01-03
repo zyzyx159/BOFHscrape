@@ -26,6 +26,10 @@
     "cheerio": "^1.0.0-rc.12",
     "date-and-time": "^3.0.3",
     "date-format": "^4.0.14",
+    "prettier": "^3.0.3",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "eslint": "^8.52.0"
   }
 }

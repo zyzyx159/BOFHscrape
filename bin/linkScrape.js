@@ -1,23 +1,24 @@
-import axios, * as others from 'axios'; 
+//ACCEPT: web address 
+//RETURN: list of BOFH links
+
+import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 export function getLinks(URL) {
-  axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
-    const html = response.data;
-    const $ = cheerio.load(html);
-    const eplink = $('div[id=page] > div[id=main-col] > div[class=headlines]');
-    let sorw = $('srow rt-1*');
+  return new Promise(function(resolve, reject){
+    axios.get(URL).then(response => {
+      const html = response.data;
+      const $ = cheerio.load(html);
  
-    const links = [];
+      const links = [];
 
-    $('.story_link').each( function (){
-      var link = $(this).attr('href');
-//        console.log(link);
-      if (link.includes("bofh")){
-//        links.push({link});
-        links.push("https://www.theregister.com" + link);
-      }
-    });
-    return links;
+      $('.story_link').each( function (){
+        var link = $(this).attr('href');
+        if (link.includes("bofh")){
+          links.push("https://www.theregister.com" + link);
+        }
+      });
+    resolve(links);
+    })
   })
-};
+}

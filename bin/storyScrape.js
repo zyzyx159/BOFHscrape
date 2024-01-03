@@ -1,4 +1,4 @@
-import axios, * as others from 'axios';
+import axios from 'axios';
 import * as cheerio from 'cheerio';
 
 //NOTE: The program is failing as its running everything before it finishes axios.
@@ -7,13 +7,9 @@ import * as cheerio from 'cheerio';
 let storyData = new Map();
 
 export function getStory(URL) {
-
-  //var storyData = new Map();
   storyData.set('URL',URL);
 
-//NOTE: axios needs to be a promise that needs to delay the return function
-
-  axios.get(URL).then(response => { // The HTML code of the website is stored in the "data" property of the response object
+  axios.get(URL).then(response => { 
     const html = response.data;
     const $ = cheerio.load(html);
     const episodeElements = $('div[id=page] > article');
