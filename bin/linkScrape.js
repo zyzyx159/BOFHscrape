@@ -9,7 +9,6 @@ export function getLinks(URL) {
     axios.get(URL).then(response => {
       const html = response.data;
       const $ = cheerio.load(html);
- 
       const links = [];
 
       $('.story_link').each( function (){
@@ -18,7 +17,16 @@ export function getLinks(URL) {
           links.push("https://www.theregister.com" + link);
         }
       });
-    resolve(links);
+      //if links.count > 0 resolve else reject
+      if (links.length > 0) {
+        for(let i = 0; i < links.length; i++){
+          console.log(links[i]);
+        }
+
+        resolve(links);
+      } else {
+        reject('No links found')
+      }
     })
   })
 }
