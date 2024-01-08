@@ -3,6 +3,7 @@ import * as linkScrape from './linkScrape.js';
 import * as storyScrape from './storyScrape.js';
 import * as test from './test.js'
 
+//const URL = "https://www.theregister.com/offbeat/bofh/"
 //NOTE: this function is going to only get the latest episodes
 export function current() {
   //call linkScrape with the default URL and wait for a reply
@@ -24,4 +25,4 @@ function dbCheck(link) {
   
 }
 
-test.testStoryScrape();
+test.testLinkScrape("https://www.theregister.com/offbeat/bofh/");
