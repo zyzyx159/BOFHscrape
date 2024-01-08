@@ -1,29 +1,17 @@
-import * as utils from './utils.js';
 import * as linkScrape from './linkScrape.js';
-//import * as storyScrape from './storyScrape3.js';
 
-const URL = "https://www.theregister.com/2023/10/13/bofh_2023_episode_19/";
-//const URL = "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises"
+//const URL = "https://www.theregister.com/offbeat/bofh/";
 
-export function testStoryScrape(){
-  console.log(
-    storyScrape.getStory(URL)
-  );
+function onSucess(links) {
+  for(let i = 0; i < links.legenth; i++){
+    console.log(links[i]);
+  }
 }
 
-function success(result) {
-  var array = storyScrape.getStory();
-  console.log(array);
+function onError() {
+  console.log("no links found")
 }
 
-function failure(error){
-  console.error('${error}');
-}
-
-//storyScrape.getStory(URL).then(success, failure);
-
-export function getLinks(){
-  var links = linkScrape.getLinks;
-  for (i = 0; i < links.length; i++)
-    console.log((i+1) + links[i]);
+export function testLinkScrape(URL){
+  linkScrape.getLinks(URL).then(onSucess, onError)
 }
