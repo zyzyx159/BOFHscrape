@@ -9,9 +9,10 @@ import * as fs from 'fs';
 const path = './DB.yaml'
 
 //public export task
-export function DBCheck(URLArray) {
+export function LinkFilter(URLArray) {
   if(DBExistsCheck) {
-    //run searchDB 
+    URLFilter(URLArray);
+
   } else {
     //create DB File
     //return the whole array untouched
@@ -31,10 +32,10 @@ function loadYaml() {
 }
 
 //search YAML for URLs
-function searchDB(URLArray){
-  var data = loadYaml;
-  for(i = 0; i < URLArray; i++){
-    //https://stackoverflow.com/questions/51374007/node-js-search-dynamic-json-object-in-json-array
+function URLFilter(URLArray){
+  var Yaml = loadYaml();
+  let URLsToDownload = URLArray.filter(x => Yaml.includes(x));
+  return URLsToDownload;
   }
 }
 //search file for URL
