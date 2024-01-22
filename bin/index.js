@@ -3,26 +3,20 @@ import * as linkScrape from './linkScrape.js';
 import * as storyScrape from './storyScrape.js';
 import * as test from './test.js'
 
-//const URL = "https://www.theregister.com/offbeat/bofh/"
-//NOTE: this function is going to only get the latest episodes
-export function current() {
-  //call linkScrape with the default URL and wait for a reply
-  //https://www.youtube.com/watch?v=TnhCX0KkPqs
+const URL = "https://www.theregister.com/offbeat/bofh/"
+const path = './DB.yaml'
+
+if !fs.existsSync(path){
+  fs.writeFile('./DB.yaml')
 }
 
-//NOTE: This function checks all the pages of links and downloads everything
-export function archive(URL) {
+linkScrape.getLinks(URL).then(onLinkScrapeSucess, onLinkScrapError)
 
+function onLinkScrapError{
+  console.log("onLinkScrapError: No links found.")
 }
 
-//NOTE: This function downloads the the stuff written before it was sold to The Register
-export function pre2k(URL) {
-  
+function onLinkScrapeSucess(links)
+    
 }
 
-//NOTE: this belongs in utils
-function dbCheck(link) {
-  
-}
-
-test.testLinkScrape("https://www.theregister.com/offbeat/bofh/");
