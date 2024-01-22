@@ -8,7 +8,7 @@ import * as fs from 'fs';
 
 export function filterUrls(URLArray, pathToDB){
   var Yaml = loadYaml(pathToDB);
-  
+ //TODO: using filters wrong 
   let URLsToDownload = URLArray.filter(x => Yaml.includes(x));
   return URLsToDownload;
 }
