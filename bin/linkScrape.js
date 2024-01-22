@@ -24,7 +24,7 @@ export function getLinks(URL) {
         }
         resolve(links);
       } else {
-        reject('No links found')
+        reject('No links found');
       }
     })
   })
