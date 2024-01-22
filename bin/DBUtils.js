@@ -16,7 +16,7 @@ export function filterUrls(URLArray, pathToDB){
 //load file into memory
 function loadYaml(pathToDB) {
   let fileContents = fs.readFileSync(pathToDB, 'utf8');
-  let data = yaml.safeLoadAll(fileContents);
+  let data = yaml.loadAll(fileContents);
   return data;
 }
 
