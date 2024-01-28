@@ -1,9 +1,0 @@
-data flow:
-  current
-    pass current URL to linkScrape
-  LinkScrape
-    Grab all the links from the page and pass them to a link checker
-  link checker
-    make new list of all links not in the DB and pass those links to story scrape
-  story scrape
-    copy the story to MD and add the links to the DB
