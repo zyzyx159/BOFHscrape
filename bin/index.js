@@ -20,7 +20,7 @@ run(currentUrl);
 //TODO: Eventually this needs to check if we need the archive function 
 
 function run(Url){
-  linkScrape.getLinks(Url).then(onLinkScrapeSucess(), onLinkScrapeError());
+  linkScrape.getLinks(URL).then(onLinkScrapeSucess, onLinkScrapError)
 }
 
 function onLinkScrapError(){
@@ -28,13 +28,7 @@ function onLinkScrapError(){
 }
 
 function onLinkScrapeSucess(links){
-//  console.log("I got the links");
-  var downLoadLinks = DBUtils.filterUrls(links, pathToDB);
-  
-  console.log(downLoadLinks.legenth);
-
-  //for(let i = 0; i < downLoadLinks.legenth; i++){
-  //  console.log(downLoadLinks[i]);
-  //}
-
+  for(let i = 0; i < links.legenth; i++){
+    console.log(links[i]);
+  }
 }
