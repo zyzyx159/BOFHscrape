@@ -17,7 +17,9 @@ export function getLinks(URL) {
           links.push("https://www.theregister.com" + link);
         }
       });
+
       //if links.count > 0 resolve else reject
+      
       if (links.length > 0) {
         for(let i = 0; i < links.length; i++){
           console.log(links[i]);
