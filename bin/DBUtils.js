@@ -7,16 +7,28 @@ import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 
 export function filterUrls(URLArray, pathToDB){
-  var Yaml = loadYaml(pathToDB);
- //TODO: using filters wrong 
-  let URLsToDownload = URLArray.filter(x => Yaml.includes(x));
+  let rawYaml = fs.readFileSync(pathToDB, 'utf8');
+  let mappedYaml = yaml.loadAll(rawYaml);
+
+  let yamlURLs = [];
+
+  function traverse(data) {
+    if (typeof data === 'object') {
+      for (const [k, v] of Object.entries(data)) {
+        if (k === key) {
+          yamlURLs.push(v);
+        }
+        traverse(v);
+      }
+    }
+  }
+
+  traverse(mappedYaml);
+
+  var URLsToDownload = URLArray.filter(item => !yamlURLs.includes(item));
+
   return URLsToDownload;
 }
 
-//load file into memory
-function loadYaml(pathToDB) {
-  let fileContents = fs.readFileSync(pathToDB, 'utf8');
-  let data = yaml.loadAll(fileContents);
-  return data;
-}
+
 
