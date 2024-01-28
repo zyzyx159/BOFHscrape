@@ -1,9 +1,6 @@
 import axios from 'axios';
 import * as cheerio from 'cheerio';
 
-//NOTE: The program is failing as its running everything before it finishes axios.
-//I think I can directly push all the data into the map, I just need the program to wait for axios to run before returning data.
-
 let storyData = new Map();
 
 export function getStory(URL) {
