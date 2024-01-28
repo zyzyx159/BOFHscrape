@@ -6,9 +6,9 @@ import * as cheerio from 'cheerio';
 
 export function getLinks(URL) {
   return new Promise(function(resolve, reject){
-    fs.readFile("./BOFH.html").then(response => {
-      const html = response.data;
-      const $ = cheerio.load(html);
+    fs.readFile("./BOFH.html", "utf8", (err, data) => {
+      if (err) throw err;
+      const $ = cheerio.load(data);
       const links = [];
 
       $('.story_link').each( function (){
@@ -18,8 +18,6 @@ export function getLinks(URL) {
         }
       });
 
-      //if links.count > 0 resolve else reject
-      
       if (links.length > 0) {
         for(let i = 0; i < links.length; i++){
           console.log(links[i]);
