@@ -1,16 +1,14 @@
-import * as linkScrape from './linkScrape.js';
-import * as fs from 'fs';
+import * as linkScrape from "./linkScrape.js";
+import * as fs from "fs";
 
 //read and write the database
-export function readDB(){
-
-}
+export function readDB() {}
 // write the mark down
 // process the map object the story scrape is going create
 // compare the two lists of links
 
 //export function ProcessStoryMap{
-//  let stringYear = df.asString('yyyy', pubDate); 
+//  let stringYear = df.asString('yyyy', pubDate);
 
 //  let fileName = "../output/" + stringYear + " " + episodeNumber + (".md");
 
@@ -28,4 +26,3 @@ export function readDB(){
 //        console.log(err);
 //  )};
 //};
-
