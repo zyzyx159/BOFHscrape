@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as cheerio from "cheerio";
 
 //get HTML from file
-export function processLocal(file) {
+export function localHTML(file) {
   return new Promise(function (resolve, reject) {
     fs.readFile(file, "utf8", (err, data) => {
       if (err) throw err;
@@ -13,7 +13,7 @@ export function processLocal(file) {
 }
 
 //get HTML from web
-export function processWeb(url) {
+export function webHTML(url) {
   return new Promise(function (resolve, reject) {
     axios.get(url).then((response) => {
       resolve(response.data);
