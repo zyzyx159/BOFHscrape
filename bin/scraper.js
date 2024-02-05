@@ -34,9 +34,6 @@ export function filterLinks(html) {
   });
 
   if (links.length > 0) {
-    //    for (let i = 0; i < links.length; i++) {
-    //      console.log(links[i]);
-    //    }
     return links;
   } else {
     reject("No links found");
