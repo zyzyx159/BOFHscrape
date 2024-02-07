@@ -41,10 +41,9 @@ export function filterLinks(html) {
 }
 
 //filter HTML for stories
-export function filterStories(html, source) {
+export function filterStories(html) {
   let storyData = new Map();
 
-  storyData.set("URL", url);
   const $ = cheerio.load(html);
   const episodeElements = $("div[id=page] > article");
 
