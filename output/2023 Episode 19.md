@@ -2,7 +2,7 @@
 
 ## The signal is strongest in the pub...
 
-Episode 19  "I need you to find it!" the Boss snaps.
+Episode 19 "I need you to find it!" the Boss snaps.
 
 "I... Nope... nothing..." I say, perusing my phone screen.
 
@@ -74,7 +74,7 @@ I know the Boss wants to know if "attenuated" is good or bad, but he doesn't wan
 
 The Boss isn't happy. There are now at least four different hotspots with his name associated with them – none of which would be considered flattering. One of them even has a login screen which has an I-am-not-a-robot verification process where the user has to select the image which most resembles the Boss – with an image selection consisting mainly of rubbish bins, vacuum cleaners and garden gnomes.
 
-"We've done what we could!' I say, "but we have to consider the possibility that there's more than one person involved."
+"We've done what we could!" I say, "but we have to consider the possibility that there's more than one person involved."
 
 "More than one how?"
 
@@ -100,7 +100,7 @@ We're interrupted by the phone.
 
 "Yes?" the Boss says ..."I think you have the wrong number... No, I know, but you have the wrong number."
 
->clatter<
+> clatter<
 
 "MAKE. IT. STOP," he looks pointedly at the PFY and me.
 
@@ -114,7 +114,7 @@ We're interrupted by the phone.
 
 "Of course."
 
->CLICKY<
+> CLICKY<
 
 "Hmm," the PFY says about a minute of silence later.
 
@@ -136,7 +136,7 @@ We're interrupted by the phone.
 
 "I can't. We made the changes permanent. We'd have to get to every unit in the mesh, reset it to factory defaults, then prevent the mesh from reconfiguring it in healing mode..."
 
->Crash!<
+> Crash!<
 
 "What's up with the network," our esteemed Director asks.
 
@@ -154,10 +154,8 @@ We're interrupted by the phone.
 
 "As it happens I think my assistant has the number of someone 'willing to trade' earlier today..."
 
-
-
 - Published on: Fri Oct 13 2023 05:00:00 GMT-0500 (Central Daylight Time)
 
-- Written By:  Simon Travaglia                                
+- Written By: Simon Travaglia
 
 - Posted to: [https://www.theregister.com/2023/10/13/bofh_2023_episode_19/](https://www.theregister.com/2023/10/13/bofh_2023_episode_19/)
