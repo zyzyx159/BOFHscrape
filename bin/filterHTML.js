@@ -1,25 +1,4 @@
-import * as axios from "axios";
-import * as fs from "fs";
 import * as cheerio from "cheerio";
-
-//get HTML from file
-export function localHTML(file) {
-  return new Promise(function (resolve, reject) {
-    fs.readFile(file, "utf8", (err, data) => {
-      if (err) throw err;
-      resolve(data);
-    });
-  });
-}
-
-//get HTML from web
-export function webHTML(url) {
-  return new Promise(function (resolve, reject) {
-    axios.get(url).then((response) => {
-      resolve(response.data);
-    });
-  });
-}
 
 //filter HTML for links
 export function filterLinks(html) {
