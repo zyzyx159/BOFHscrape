@@ -6,13 +6,16 @@ import * as output from "../bin/output.js";
 const URL = "https://www.theregister.com/offbeat/bofh/";
 const localURL = "../test/BOFH.html";
 const dbPath = "../DB.yaml";
-const localStory = "./test/BOFH_Episode.html";
+const localStory = "../test/bofh_episode.html";
 
 //print list of links
-getHTML.localHTML(localURL).then(filterHTML.filterLinks).then(printArray);
+//getHTML.localHTML(localStory).then(filterHTML.filterLinks).then(printArray);
 
 function printArray(data) {
   for (let i = 0; i < data.length; i++) {
-    console.log(data[i]);
+    console.log(i + " - " + data[i]);
   }
 }
+
+//print story array
+getHTML.localHTML(localStory).then(filterHTML.filterStories).then(printArray);
