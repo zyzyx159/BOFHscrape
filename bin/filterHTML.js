@@ -21,38 +21,33 @@ export function filterLinks(html) {
 
 //filter HTML for stories
 export function filterStories(html) {
-  let storyData = new Map();
+  let storyData = [];
 
   const $ = cheerio.load(html);
   const episodeElements = $("div[id=page] > article");
 
-  storyData.set(
-    "title",
-    episodeElements.find("div[class=header_right] > h1").text()
-  );
+  //0
+  storyData.push(episodeElements.find("div[class=header_right] > h1").text());
 
-  storyData.set(
-    "subtitle",
-    episodeElements.find("div[class=header_right] > h2").text()
-  );
+  //1
+  storyData.push(episodeElements.find("div[class=header_right] > h2").text());
 
-  storyData.set(
-    "episodeNumber",
-    episodeElements.find("#body > p:nth-child(1) > span").text()
-  );
+  //2
+  storyData.push(episodeElements.find("#body > p:nth-child(1) > span").text());
 
-  storyData.set(
-    "author",
+  //3
+  storyData.push(
     episodeElements
       .find("a.byline")
       .text()
       .replace(/\r?\n|\r/g, " ")
   );
 
-  storyData.set("pubDate", episodeElements.find("span[class=dateline]").text());
+  //4
+  storyData.push(episodeElements.find("span[class=dateline]").text());
 
-  storyData.set(
-    "story",
+  //5
+  storyData.push(
     episodeElements
       .find("div[id=body] > p")
       .toArray()
