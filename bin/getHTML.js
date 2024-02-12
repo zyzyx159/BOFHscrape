@@ -5,7 +5,7 @@ import * as fs from "fs";
 export function localHTML(file) {
   return new Promise(function (resolve, reject) {
     fs.readFile(file, "utf8", (err, data) => {
-      if (err) throw err;
+      if (err) console.log(err);
       resolve(data);
     });
   });
