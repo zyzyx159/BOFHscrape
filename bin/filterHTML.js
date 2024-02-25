@@ -1,4 +1,5 @@
 import * as cheerio from "cheerio";
+import * as story from "./story.js";
 
 //filter HTML for links
 export function filterLinks(html) {
@@ -20,29 +21,29 @@ export function filterLinks(html) {
 }
 
 //filter HTML for stories
-export function filterStories(html) {
-  let storyData = [];
+export function filterStories(html, URL) {
+  var storyData = new story(URL);
 
   const $ = cheerio.load(html);
   const episodeElements = $("div[id=page] > article");
 
   //0 - title
-  storyData.push(episodeElements.find("div[class=header_right] > h1").text());
+  storyData.setTitle(episodeElements.find("div[class=header_right] > h1").text());
 
   //1 - subtitle
-  storyData.push(episodeElements.find("div[class=header_right] > h2").text());
+  storyData.setSubtitle(episodeElements.find("div[class=header_right] > h2").text());
 
   //2 - episode
-  storyData.push(episodeElements.find("#body > p:nth-child(1) > span").text());
+  storyData.setEpisode(episodeElements.find("#body > p:nth-child(1) > span").text());
 
   //3 - author
-  storyData.push(episodeElements.find("a.byline").text());
+  storyData.setAuthor(episodeElements.find("a.byline").text());
 
   //4 publish date
-  storyData.push(episodeElements.find("span[class=dateline]").text());
+  storyData.setPublishDate(episodeElements.find("span[class=dateline]").text());
 
   //5 story
-  storyData.push(
+  storyData.setStory(
     episodeElements
       .find("div[id=body] > p")
       .toArray()
