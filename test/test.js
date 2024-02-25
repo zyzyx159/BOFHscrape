@@ -17,8 +17,12 @@ function printArray(data) {
   }
 }
 
+function printStory(data){
+  console.log(data.getTitle);
+}
+
 //print story array
-getHTML.localHTML(localStory).then(filterHTML.filterStories).then(printArray);
+getHTML.localHTML(localStory).then(filterHTML.filterStories(localStory)).then(printStory);
 
 function testDateSplit(data){
   let dateStringArray = data[4].replace(/\s\s+/g, ' ');
