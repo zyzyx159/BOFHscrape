@@ -26,16 +26,16 @@ export function filterStories(html) {
   const $ = cheerio.load(html);
   const episodeElements = $("div[id=page] > article");
 
-  //0
+  //0 - title
   storyData.push(episodeElements.find("div[class=header_right] > h1").text());
 
-  //1
+  //1 - subtitle
   storyData.push(episodeElements.find("div[class=header_right] > h2").text());
 
-  //2
+  //2 - episode
   storyData.push(episodeElements.find("#body > p:nth-child(1) > span").text());
 
-  //3
+  //3 - author
   storyData.push(
     episodeElements
       .find("a.byline")
@@ -43,10 +43,10 @@ export function filterStories(html) {
       .replace(/\r?\n|\r/g, " ")
   );
 
-  //4
+  //4 publish date
   storyData.push(episodeElements.find("span[class=dateline]").text());
 
-  //5
+  //5 story
   storyData.push(
     episodeElements
       .find("div[id=body] > p")
