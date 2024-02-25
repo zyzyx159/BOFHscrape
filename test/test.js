@@ -19,3 +19,11 @@ function printArray(data) {
 
 //print story array
 getHTML.localHTML(localStory).then(filterHTML.filterStories).then(printArray);
+
+function testDateSplit(data){
+  let dateStringArray = data[4].replace(/\s\s+/g, ' ');
+  console.log(dateStringArray);
+}
+
+//test date split
+//getHTML.localHTML(localStory).then(filterHTML.filterStories).then(testDateSplit);
