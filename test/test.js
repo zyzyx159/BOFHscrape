@@ -2,6 +2,7 @@ import * as dbUtils from "../bin/DBUtils.js";
 import * as getHTML from "../bin/getHTML.js";
 import * as filterHTML from "../bin/filterHTML.js";
 import * as output from "../bin/output.js";
+import * as story from "../bin/story.js";
 
 const URL = "https://www.theregister.com/offbeat/bofh/";
 const localURL = "../test/BOFH.html";
