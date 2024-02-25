@@ -36,12 +36,7 @@ export function filterStories(html) {
   storyData.push(episodeElements.find("#body > p:nth-child(1) > span").text());
 
   //3 - author
-  storyData.push(
-    episodeElements
-      .find("a.byline")
-      .text()
-      .replace(/\r?\n|\r/g, " ")
-  );
+  storyData.push(episodeElements.find("a.byline").text());
 
   //4 publish date
   storyData.push(episodeElements.find("span[class=dateline]").text());
