@@ -1,12 +1,13 @@
 import * as cheerio from "cheerio";
+import * as getHTML from "./getHTML.js";
 import * as axios from "axios";
 
-class story {
+export class story {
   //#region - constructor
   constructor(newURL) {
     this.#setURL(newURL);
+    getHTML.localHTML(this.URL).then(this.loadCheerio).then(this.processHTML);
   }
-  //#endregion
 
   //#region - Getters and Setters
   #setURL(newURL) {
@@ -17,17 +18,6 @@ class story {
   }
   getURL() {
     return this.URL;
-  }
-
-  #setHTML() {
-    return new Promise(function (resolve, reject) {
-      axios.get(this.URL).then((response) => {
-        resolve(response.data);
-      });
-    });
-  }
-  getHTML() {
-    return this.HTML;
   }
 
   #setTitle(newTitle) {
@@ -76,31 +66,57 @@ class story {
   }
   //#endregion
 
+  loadCheerio(HTML) {
+    return cheerio.load(HTML);
+  }
+
   //#region - Cherio: process HTML
-  processHTML() {
-    $ = cheerio.load(this.html);
-    episodeElements = $("div[id=page] > article");
+  processHTML($) {
+    var episodeElements = $("div[id=page] > article");
+
+    // episodeElements
+    //   .find("div[class=header_right] > h1")
+    //   .text()
+    //   .then(this.#setTitle(title));
 
     this.#setTitle(episodeElements.find("div[class=header_right] > h1").text());
 
-    this.#setSubtitle(
-      episodeElements.find("div[class=header_right] > h2").text()
-    );
+    // this.#setSubtitle(
+    //   episodeElements.find("div[class=header_right] > h2").text()
+    // );
 
-    this.#setEpisode(
-      episodeElements.find("#body > p:nth-child(1) > span").text()
-    );
+    // this.#setEpisode(
+    //   episodeElements.find("#body > p:nth-child(1) > span").text()
+    // );
 
-    this.#setAuthor(episodeElements.find("a.byline").text());
+    // this.#setAuthor(episodeElements.find("a.byline").text());
 
-    this.#setPublishDate(episodeElements.find("span[class=dateline]").text());
+    //this.#setPublishDate(this.processJSON($));
 
-    this.#setStory(
-      episodeElements
-        .find("div[id=body] > p")
-        .toArray()
-        .map((element) => $(element).text())
-    );
+    // this.#setStory(
+    //   episodeElements
+    //     .find("div[id=body] > p")
+    //     .toArray()
+    //     .map((element) => $(element).text())
+    // );
+  }
+
+  processJSON($) {
+    var stingArray = $("script[type='application/ld+json']");
+    var jsonString = "";
+
+    for (var i in stingArray) {
+      for (var j in stingArray[i].children) {
+        var data = stingArray[i].children[j].data;
+        if (data) {
+          jsonString = jsonString + data;
+        }
+      }
+    }
+
+    var objJSON = JSON.parse(jsonString);
+    var dp = objJSON.datePublished;
+    return dp;
   }
   //#endregion
 }
