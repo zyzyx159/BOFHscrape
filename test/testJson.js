@@ -6,13 +6,13 @@ const localURL = "../test/BOFH.html";
 const dbPath = "../DB.yaml";
 const localStory = "/home/zyzyx/git/BOFHscrape/test/bofh_episode2.html";
 
-getHTML.localHTML(localStory).then(hiHo).then(findTimeStamp);
+getHTML.localHTML(localStory).then(loadCheerio).then(findTimeStamp);
 
 function fetchHTML() {
   getHTML.localHTML(localStory);
 }
 
-function hiHo(html) {
+function loadCheerio(html) {
   return cheerio.load(html);
 }
 
