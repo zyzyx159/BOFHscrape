@@ -18,15 +18,18 @@ function printArray(data) {
   }
 }
 
-function printStory(data){
+function printStory(data) {
   console.log(data.getTitle);
 }
 
 //print story array
-getHTML.localHTML(localStory).then(filterHTML.filterStories(localStory)).then(printStory);
+getHTML
+  .localHTML(localStory)
+  .then(filterHTML.filterStories(localStory))
+  .then(printStory);
 
-function testDateSplit(data){
-  let dateStringArray = data[4].replace(/\s\s+/g, ' ');
+function testDateSplit(data) {
+  let dateStringArray = data[4].replace(/\s\s+/g, " ");
   console.log(dateStringArray);
 }
 
