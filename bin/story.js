@@ -4,6 +4,7 @@ import * as axios from "axios";
 
 export class story {
   //#region - constructor
+  //TODO: constructor needs to make a promice
   constructor(newURL) {
     this.#setURL(newURL);
     getHTML.localHTML(this.URL).then(this.loadCheerio).then(this.processHTML);
