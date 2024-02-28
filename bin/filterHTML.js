@@ -21,20 +21,26 @@ export function filterLinks(html) {
 }
 
 //filter HTML for stories
-export function filterStories(html, URL) {
-  var storyData = new story(URL);
+export function filterStories(html) {
+  //  var storyData = new story(URL);
 
   const $ = cheerio.load(html);
   const episodeElements = $("div[id=page] > article");
 
   //0 - title
-  storyData.setTitle(episodeElements.find("div[class=header_right] > h1").text());
+  storyData.setTitle(
+    episodeElements.find("div[class=header_right] > h1").text()
+  );
 
   //1 - subtitle
-  storyData.setSubtitle(episodeElements.find("div[class=header_right] > h2").text());
+  storyData.setSubtitle(
+    episodeElements.find("div[class=header_right] > h2").text()
+  );
 
   //2 - episode
-  storyData.setEpisode(episodeElements.find("#body > p:nth-child(1) > span").text());
+  storyData.setEpisode(
+    episodeElements.find("#body > p:nth-child(1) > span").text()
+  );
 
   //3 - author
   storyData.setAuthor(episodeElements.find("a.byline").text());
